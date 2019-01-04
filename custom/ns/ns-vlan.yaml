@@ -1,0 +1,26 @@
+name: ns-vlan
+namespace: common.deploy.ns
+display-name: Netscaler VLAN Configuration
+description: "This Stylebook will create a IP Address"
+schema-version: "1.0"
+version: "0.2"
+author: "Marcel Schlipf"
+import-stylebooks:
+  -
+    namespace: netscaler.nitro.config
+    prefix: ns
+    version: "12.0"
+  -
+    namespace: common.adc.types
+    prefix: adc
+    version: "1.0"
+parameters-default-sources:
+  - adc::ns-vlan-params
+components:
+  - 
+    name: ns-vlan-comp
+    type: ns::vlan
+    properties:
+      id: $parameters.vid
+      aliasname?: $parameters.aliasname
+      dynamicrouting?: $parameters.dynamicrouting

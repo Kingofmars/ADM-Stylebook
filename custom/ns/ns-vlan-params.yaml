@@ -1,0 +1,34 @@
+--- 
+name: ns-vlan-params
+namespace: common.adc.types
+version: "1.0"
+description: "This stylebook defines a typical VLAN Configuration."
+display-name: "NetScaler VLAN Parameters"
+private: true
+schema-version: "1.0"
+import-stylebooks:
+  - 
+    namespace: common.adc.types
+    prefix: adc
+    version: "1.0"
+parameters: 
+  - 
+    name: vid
+    label: "VLAN"
+    description: " "
+    type: number
+    required: true
+  - 
+    name: aliasname
+    label: "VLAN"
+    description: " "
+    type: string
+  - 
+    name: ns-vlan-advanced
+    label: "Advanced NetScaler VLAN Parameters"
+    description: "Advanced NetScaler VLAN Parameters"
+    type: object
+    gui: 
+      collapse_pane: true    
+    parameters-default-sources:
+      - adc::ns-vlan-params-advanced

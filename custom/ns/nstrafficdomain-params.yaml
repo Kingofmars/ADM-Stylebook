@@ -1,0 +1,25 @@
+--- 
+name: nstrafficdomain-params
+namespace: common.adc.types
+version: "1.0"
+description: "This stylebook defines a Traffic Domain."
+display-name: "NetScaler Tenant Parameters"
+private: true
+schema-version: "1.0"
+author: "Marcel Schlipf"
+parameters: 
+  - 
+    name: td
+    label: "Traffic Domain ID"
+    description: "ID of Traffic Domain"
+    type: number
+    min-value: 1
+    max-value: 4094
+    required: true
+  -
+    name: aliasname
+    label: "Traffic Domain Name"
+    description: "Name of Traffic Domain"
+    type: string
+    min-length: 1
+    max-length: 30

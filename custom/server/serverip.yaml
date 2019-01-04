@@ -1,0 +1,51 @@
+name: serverip
+namespace: common.deploy.adc
+display-name: Server IP Configuration
+description: "This Stylebook will create a Backend Server"
+schema-version: "1.0"
+version: "0.1"
+author: "Marcel Schlipf"
+import-stylebooks:
+  -
+    namespace: netscaler.nitro.config
+    prefix: ns
+    version: "12.0"
+  -
+    namespace: common.adc.types
+    prefix: adcp
+    version: "1.0"
+  -
+    namespace: common.deploy.adc
+    prefix: adc
+    version: "0.1"
+parameters-default-sources:
+  - adcp::server-ip-params
+parameters:
+  -
+    name: tdid
+    label: "Tenant ID"
+    type: number
+    description: " "
+  -
+    name: td-conf
+    label: "Optional: Tenant Configuration"
+    description: " "
+    type: object
+    gui: 
+      collapse_pane: true    
+    parameters-default-sources:
+      - adc::nstd
+components:
+  - 
+    name: server-td-comp
+    type: adc::nstd
+    condition: $parameters.td-conf
+    properties-default-sources:
+      - $parameters.td-conf
+  - 
+    name: serverip-comp
+    type: ns::server
+    properties-default-sources:
+      - $parameters
+    properties:
+      td?: $parameters.tdid

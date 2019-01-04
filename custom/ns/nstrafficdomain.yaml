@@ -1,0 +1,24 @@
+name: nstd
+namespace: common.deploy.adc
+display-name: Netscaler TrafficDomain Configuration
+description: "This Stylebook will create Traffic Domain"
+schema-version: "1.0"
+version: "0.1"
+author: "Marcel Schlipf"
+import-stylebooks:
+  -
+    namespace: netscaler.nitro.config
+    prefix: ns
+    version: "12.0"
+  -
+    namespace: common.adc.types
+    prefix: adcp
+    version: "1.0"
+parameters-default-sources:
+  - adcp::nstrafficdomain-params
+components:
+  - 
+    name: nstd-comp
+    type: ns::nstrafficdomain
+    properties-default-sources:
+      - $parameters

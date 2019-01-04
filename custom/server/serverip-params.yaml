@@ -1,0 +1,22 @@
+--- 
+name: serverip-params
+namespace: common.adc.types
+version: "1.0"
+description: "This stylebook defines a typical server ip information."
+display-name: "Server IP Parameters"
+private: true
+schema-version: "1.0"
+author: "Marcel Schlipf"
+parameters: 
+  -
+    name:  name
+    label: "Name of Backend Server"
+    description: "Name of the Backend server"
+    type: string
+    required: true
+  -
+    name:  ipaddress
+    label: "Server IP Address"
+    description: "IP Address of the Backend server"
+    type: ipaddress
+    required: true

@@ -1,0 +1,29 @@
+--- 
+name: ns-vlan-params-advanced
+namespace: common.adc.types
+version: "1.0"
+description: "This stylebook defines advanced VLAN Configuration."
+display-name: "NetScaler VLAN Advanced Parameters"
+private: true
+schema-version: "1.0"
+parameters: 
+  - 
+    name: dynamicrouting
+    label: "Dynamic Routing"
+    description: "Dynamic Routing"
+    type: string
+  -
+    name: ipv6dynamicrouting
+    label: "IPv6 Dynamic Routing"
+    description: "Dynamic Routing for IPv6"
+    type: string
+  -
+    name: mtu
+    label: "MTU"
+    description: "MTU Size"
+    type: double
+  -
+    name: sharing
+    label: "Sharing"
+    description: "Sharing"
+    type: string

@@ -1,0 +1,38 @@
+name: ns-ip
+namespace: common.deploy.ns
+display-name: Netscaler IP Configuration
+description: "This Stylebook will create a IP Address"
+schema-version: "1.0"
+version: "0.2"
+author: "Marcel Schlipf"
+import-stylebooks:
+  -
+    namespace: netscaler.nitro.config
+    prefix: ns
+    version: "12.0"
+  -
+    namespace: common.adc.types
+    prefix: adc
+    version: "1.0"
+  -
+    namespace: common.deploy.ns
+    prefix: nsc
+    version: "0.2"
+parameters-default-sources:
+  - adc::ns-ip-params
+  - nsc::ns-td
+components:
+  -
+    name: ns-ip-comp
+    type: ns::nsip
+    properties:
+      ipaddress: $parameters.ip
+      netmask: str($parameters.ipmask)
+      type: $parameters.iptype
+      td?: $components.ns-td-comp.properties.td
+    components:
+      - 
+        name: ns-td-comp
+        type: nsc::ns-td
+        properties-default-sources:
+          - $parameters
